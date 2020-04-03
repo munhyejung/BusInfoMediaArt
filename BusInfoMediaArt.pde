@@ -1,30 +1,49 @@
 JSONObject apiInfo;
 JSONObject busRouteInfo;
 
-void setup() {
-    size(500,500);
+PFont f;
 
+ArrayList<BusInfo> busArray = new ArrayList<BusInfo>();
+
+void setup() {
+    size(600,700);
+
+    //json
     apiInfo = loadJSONObject("apiInfo.json");
     busRouteInfo = loadJSONObject("busCode.json");
 
-
-    loadData();
+    loadAllData();
     background(255);
 
-    //JSONObject a = loadJSON("apiInfo.json");
-    //a.apiBase + a.songnaeA;
+    //글씨
+    fill(0);
+    f = createFont("NanumBarunGothicUltraLight.ttf",14);
+    
+    displayInfos();
+    
+    for(int i = 0; i<busArray.size();i++) {
+        int x = 30;
+        int y = 30 + i*75;
+        busArray.get(i).display(x,y);
+
+
+    }
+    
 }
 
 void draw() {
 
+}
 
-
+void loadAllData() {
+    loadData(apiInfo.getString("songnaeA"));
+    loadData(apiInfo.getString("songnaeB"));
+    loadData(apiInfo.getString("songnaeC"));
 }
 
 //2번 버스, 차고지대기 예외처리 해야함
-
-void loadData() {
-    String url = apiInfo.getString("apiBase") + apiInfo.getString("songnaeA");
+void loadData(String stationCode) {
+    String url = apiInfo.getString("apiBase") + stationCode;
 
     XML xml = loadXML(url);
     XML body = xml.getChild("msgBody");
@@ -39,21 +58,22 @@ void loadData() {
         String busId = Bus[i].getChild("routeId").getContent();
         String busNum = busRouteInfo.getString(busId);
 
-        if(location2 == " "){
-            
-            println(busNum + "번 버스");
-            println(time1 + "분 뒤 도착(" + location1 + "정거장 전)");
-            println(time2 + "분 뒤 도착(" + location2 + "정거장 전)");
-        }        
+        //arraylist
+        BusInfo tmp = new BusInfo(busNum,time1,time2,location1,location2);
+        busArray.add(tmp);
 
-
-
+        /*
+        //확인용
+        println(busNum + "번 버스");
+        println(time1 + "분 뒤 도착(" + location1 + "정거장 전)");
+        println(time2 + "분 뒤 도착(" + location2 + "정거장 전)");
+        */
     }
 
 }
 
-///////////////////////////////////////
-//   23번 버스
-//   5분 뒤 도착(3정거장 전)
-//   10분 뒤 도착(5정거장 전)
-///////////////////////////////////////
+void displayInfos() {
+    for(int i = 0; i<busArray.size(); i++) {
+        busArray.get(i).printInfo();
+    }
+}
