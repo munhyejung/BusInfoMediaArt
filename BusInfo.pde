@@ -22,15 +22,11 @@ class BusInfo {
     }
 
     void display(int x,int y) {
-
-        if(  != null ) {
-            text(busNum + "번 버스",x,y);
-            text(time1 + "분 뒤 도착",x,y+20);
-            text("("+loc1 + "정거장 전)",x+75,y+20);
-        } else {
-            text(busNum + "번 버스 차고지 대기 중",x,y);
-        }
-
+       
+        text(busNum + "번 버스",x,y);
+        text(time1 + "분 뒤 도착",x,y+20);
+        text("("+loc1 + "정거장 전)",x+75,y+20);
+    
         //2번 버스 예외
         if(time2.length() != 0) {
             text(time2 + "분 뒤 도착",x,y+40);
@@ -38,9 +34,6 @@ class BusInfo {
         } else {
             text(" ",x,y+40);
         }
-        
-
-
     }
 
     
