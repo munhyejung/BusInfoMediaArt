@@ -9,7 +9,6 @@ class BusInfo {
     int x,y;
 
     BusInfo(String busNum,String time1,String time2,String loc1,String loc2) {
-
         this.busNum = busNum;
         this.time1 = time1;
         this.time2 = time2;
@@ -35,6 +34,4 @@ class BusInfo {
             text(" ",x,y+40);
         }
     }
-
-    
 }

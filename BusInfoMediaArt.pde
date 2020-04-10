@@ -14,6 +14,9 @@ void setup() {
     //json
     apiInfo = loadJSONObject("apiInfo.json");
     busRouteInfo = loadJSONObject("busCode.json");
+    isItGarage = new StringDict();
+
+    busCodeLoad();
 
     loadAllData();
     background(255);
@@ -21,13 +24,6 @@ void setup() {
     //글씨
     fill(0);
     f = createFont("NanumBarunGothicUltraLight.ttf",14);
-
-    isItGarage = new StringDict();
-
-    isItGarage.set("busCode","TRUE");
-    isItGarage.get("busCode");
-
-    //true 뜨면 번호 + "차고지 대기 중"
     
     for(int i = 0; i<busArray.size();i++) {
         //paging
@@ -35,24 +31,44 @@ void setup() {
         int listNum = i%6;
         int x = 30 + pageNum*(width/4);
         int y = 40 + listNum*(height/6);
-        busArray.get(i).display(x,y);
 
         //차고지 예외 처리
-        Iterator<Integer> itr = list.iterator();
-        while(itr.hasNext()) {
-            list.get( itr.next() );
-
+        String tmpBusNum = busArray.get(i).busNum;
+        if(isItGarage.get(tmpBusNum) == "FALSE") {
+            busArray.get(i).display(x,y);
         }
-
-        if(isItGarage.get("busCode") == "TRUE") {
-            text( "번 버스 차고지 대기 중",x,y);
+        else {
+            text( tmpBusNum + "번 버스 차고지 대기 중",x,y);
         }
     }   
     //버스 확인용
     //displayInfos();
+
+    //차고지 예외 처리 확인
+    println(isItGarage);
 }
 
 void draw() {
+}
+
+void busCodeLoad() {
+    isItGarage.set("8","TRUE");
+    isItGarage.set("50-1","TRUE");
+    isItGarage.set("70","TRUE");
+    isItGarage.set("23-1","TRUE");
+    isItGarage.set("70-3","TRUE");
+    isItGarage.set("77-1","TRUE");
+    isItGarage.set("23","TRUE");
+    isItGarage.set("53","TRUE");
+    isItGarage.set("27","TRUE");
+    isItGarage.set("16","TRUE");
+    isItGarage.set("700","TRUE");
+    isItGarage.set("33","TRUE");
+    isItGarage.set("66","TRUE");
+    isItGarage.set("12-1","TRUE");
+    isItGarage.set("25","TRUE");
+    isItGarage.set("83","TRUE");
+
 }
 
 void loadAllData() {
@@ -60,7 +76,8 @@ void loadAllData() {
     loadData(apiInfo.getString("songnaeB"));
     loadData(apiInfo.getString("songnaeC"));
 
-    println(busArray.size());
+    //크기 확인
+    //println(busArray.size());
 }
 
 void loadData(String stationCode) {
@@ -82,7 +99,7 @@ void loadData(String stationCode) {
         //arraylist
         BusInfo tmp = new BusInfo(busNum,time1,time2,location1,location2);
         busArray.add(tmp);
-        isItGarage.replace(busId,"FALSE");
+        isItGarage.set(busNum,"FALSE");
 
         /*
         //정리 확인용
