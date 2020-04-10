@@ -2,11 +2,12 @@ JSONObject apiInfo;
 JSONObject busRouteInfo;
 
 PFont f;
-
 StringDict isItGarage;
+String[] busRoute = {"8","50-1","70","23-1","70-3","77-1","23","53","27","16","700","33","66","12-1","25","83"};
 
 ArrayList<BusInfo> busArray = new ArrayList<BusInfo>();
-ArrayList<Integer> list = new ArrayList<Integer>();
+
+//1정거장 강조 , 오른쪽 구석 버스 그림 , 배경(?) , 간선버스 구분
 
 void setup() {
     size(900,900);
@@ -17,7 +18,6 @@ void setup() {
     isItGarage = new StringDict();
 
     busCodeLoad();
-
     loadAllData();
     background(255);
 
@@ -34,9 +34,10 @@ void setup() {
 
         //차고지 예외 처리
         String tmpBusNum = busArray.get(i).busNum;
-        if(isItGarage.get(tmpBusNum) == "FALSE") {
+        
+        if( busArray.get(i).isItGarage == false) {
             busArray.get(i).display(x,y);
-        }
+        } 
         else {
             text( tmpBusNum + "번 버스 차고지 대기 중",x,y);
         }
@@ -44,40 +45,38 @@ void setup() {
     //버스 확인용
     //displayInfos();
 
-    //차고지 예외 처리 확인
-    println(isItGarage);
 }
 
 void draw() {
 }
 
 void busCodeLoad() {
-    isItGarage.set("8","TRUE");
-    isItGarage.set("50-1","TRUE");
-    isItGarage.set("70","TRUE");
-    isItGarage.set("23-1","TRUE");
-    isItGarage.set("70-3","TRUE");
-    isItGarage.set("77-1","TRUE");
-    isItGarage.set("23","TRUE");
-    isItGarage.set("53","TRUE");
-    isItGarage.set("27","TRUE");
-    isItGarage.set("16","TRUE");
-    isItGarage.set("700","TRUE");
-    isItGarage.set("33","TRUE");
-    isItGarage.set("66","TRUE");
-    isItGarage.set("12-1","TRUE");
-    isItGarage.set("25","TRUE");
-    isItGarage.set("83","TRUE");
-
+    for(int i = 0; i<busRoute.length; i++) {
+        isItGarage.set(busRoute[i],"TRUE");
+    }
 }
+
 
 void loadAllData() {
     loadData(apiInfo.getString("songnaeA"));
     loadData(apiInfo.getString("songnaeB"));
     loadData(apiInfo.getString("songnaeC"));
 
+    
+
+    for(int i = 0; i<busRoute.length; i++) {
+        if( isItGarage.get(busRoute[i]) == "TRUE") {
+            BusInfo tmp = new BusInfo(busRoute[i]);
+            busArray.add(tmp);
+        }
+    }
+
+    //버스 T/F 확인
+    //println(isItGarage);
+
     //크기 확인
     //println(busArray.size());
+
 }
 
 void loadData(String stationCode) {

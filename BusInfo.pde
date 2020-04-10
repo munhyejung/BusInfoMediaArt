@@ -5,6 +5,7 @@ class BusInfo {
     String loc1;
     String loc2;
     String busNum;
+    boolean isItGarage;
 
     int x,y;
 
@@ -14,6 +15,12 @@ class BusInfo {
         this.time2 = time2;
         this.loc1 = loc1;
         this.loc2 = loc2;
+        this.isItGarage = false;
+    }
+
+    BusInfo(String busNum) {
+        this.busNum = busNum;
+        this.isItGarage = true;
     }
 
     void printInfo() {
