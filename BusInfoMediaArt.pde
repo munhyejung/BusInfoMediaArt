@@ -1,16 +1,15 @@
 JSONObject apiInfo;
 JSONObject busRouteInfo;
 
+int paging = 6;
 PFont f;
 StringDict isItGarage;
 String[] busRoute = {"8","50-1","70","23-1","70-3","77-1","23","53","27","16","700","33","66","12-1","25","83"};
 
 ArrayList<BusInfo> busArray = new ArrayList<BusInfo>();
 
-//1정거장 강조 , 오른쪽 구석 버스 그림 , 배경(?) , 간선버스 구분
-
 void setup() {
-    size(900,900);
+    size(1080,1920);
 
     //json
     apiInfo = loadJSONObject("apiInfo.json");
@@ -20,17 +19,19 @@ void setup() {
     busCodeLoad();
     loadAllData();
     background(255);
+    noLoop();
 
     //글씨
     fill(0);
-    f = createFont("NanumBarunGothicUltraLight.ttf",14);
+    f = createFont("NotoSerifCJKkr-ExtraLight.otf",12);
+    textFont(f);
     
     for(int i = 0; i<busArray.size();i++) {
         //paging
-        int pageNum = i/6;
-        int listNum = i%6;
+        int pageNum = i/paging;
+        int listNum = i%paging;
         int x = 30 + pageNum*(width/4);
-        int y = 40 + listNum*(height/6);
+        int y = 40 + listNum*(height/paging);
 
         //차고지 예외 처리
         String tmpBusNum = busArray.get(i).busNum;
@@ -48,6 +49,8 @@ void setup() {
 }
 
 void draw() {
+    FirstScreen s1 = new FirstScreen();
+    s1.drawBackground();
 }
 
 void busCodeLoad() {
