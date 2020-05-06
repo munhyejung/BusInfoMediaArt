@@ -1,3 +1,4 @@
+//Seperate Class that call data
 JSONObject apiInfo;
 JSONObject busRouteInfo;
 
