@@ -25,8 +25,9 @@ void draw() {
   // Background
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
   image(background, width/2, 750, 395, 463);
-  color c = color(0,0,0,40);
-  fill(c);
+  color backgroundBlack = color(0,0,0,100);
+  fill(backgroundBlack);
+  noStroke();
   rect(0,0,width,height);
   
   textAlign(CENTER);

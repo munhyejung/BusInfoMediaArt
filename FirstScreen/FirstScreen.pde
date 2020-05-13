@@ -3,7 +3,7 @@ int X_AXIS = 2;
 color c1, c2;
 
 PFont f;
-PImage img;
+PImage background;
 
 void setup() {
   size(600,1000);
@@ -17,20 +17,26 @@ void setup() {
   f = createFont("NotoSerifCJKkr-ExtraLight.otf",21);
   textFont(f);
   imageMode(CENTER);
-  img = loadImage("First.png");
+  background = loadImage("First.png");
 
 }
 
 void draw() {
   // Background
   setGradient(0, 0, width, height, c1, c2, Y_AXIS);
+  color backgroundBlack = color(0,0,0,100);
+  fill(backgroundBlack);
+  noStroke();
+  rect(0,0,width,height);
+
   textAlign(CENTER);
   textLeading(50);
+  fill(255);
   text("네가 오후 4시에 온다면\n 나는 3시부터\n 행복해지기 시작할 거야",width/2,(height/2)-55);
   textSize(15);
   text("어린 왕자",width/2,(height/2)+120);
 
-  image(img, width/2, 1000, 441, 554);
+  image(background, width/2, 1000, 441, 554);
 }
 
 void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
