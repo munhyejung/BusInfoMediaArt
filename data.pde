@@ -104,13 +104,12 @@ class Data {
             busArray.add(tmp);
             isItGarage.set(busNum,"FALSE");
 
-            //*
-            //정리 확인용
+            /* 정리 확인용
             println(busNum + "번 버스");
             println(time1 + "분 뒤 도착(" + location1 + "정거장 전)");
             println(time2 + "분 뒤 도착(" + location2 + "정거장 전)");
             println(time2.length());
-            //*/
+            */
         }
     }
 

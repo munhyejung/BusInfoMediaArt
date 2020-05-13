@@ -3,6 +3,14 @@ Data data = new Data();
 int paging = 6;
 PFont f;
 
+/*
+FirstScreen first;
+SecondScreen second;
+ThirdScreen third;
+FourthScreen fourth;
+FifthScreen fifth;
+*/
+
 void setup() {
     size(600,1000);
     background(255);
@@ -10,7 +18,15 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
+    ArrayList<BusInfo> returnedData = data.getBusInfoWithScreen(2);
+    for(int i = 0; i<returnedData.size(); i++) {
+        println(returnedData.get(i).busNum);
+    }
+
+
+
     //글씨
+    /*
     fill(0);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",12);
     textFont(f);
@@ -32,6 +48,7 @@ void setup() {
             text( tmpBusNum + "번 버스 차고지 대기 중",x,y);
         }
     }   
+    */
 
     //버스 확인용
     //displayInfos();
@@ -39,6 +56,8 @@ void setup() {
 }
 
 void draw() {
+
+    
 
 }
 
