@@ -1,41 +1,39 @@
-class FirstScreen {
+class FourthScreen {
 
   int Y_AXIS = 1;
   int X_AXIS = 2;
   color c1, c2;
 
   PFont f;
-  PImage background;
+  PImage leftarrow;
+  PImage littePrince;
+  PImage earth;
 
   void setupFunction() {
-    
-    c1 = color(184, 46, 107);
-    c2 = color(209, 136, 33);
+
+    c1 = color(87, 73, 115);
+    c2 = color(251, 182, 142);
 
     fill(255);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",21);
+    f = createFont("NotoSerifCJKkr-ExtraLight.otf",25);
     textFont(f);
     imageMode(CENTER);
-    background = loadImage("First.png");
+    leftarrow = loadImage("left.png");
+    littePrince = loadImage("fourth.png");
+    earth = loadImage("fourth2.png");
 
   }
 
   void drawFunction() {
     // Background
     setGradient(0, 0, width, height, c1, c2, Y_AXIS);
-    color backgroundBlack = color(0,0,0,100);
-    fill(backgroundBlack);
-    noStroke();
-    rect(0,0,width,height);
-
     textAlign(CENTER);
-    textLeading(50);
-    fill(255);
-    text("네가 오후 4시에 온다면\n 나는 3시부터\n 행복해지기 시작할 거야",width/2,(height/2)-55);
-    textSize(15);
-    text("어린 왕자",width/2,(height/2)+120);
+    text("행복한 시작",width/2,height/5);
 
-    image(background, width/2, 1000, 441, 554);
+    image(leftarrow,width/18,height-(height/25),23,37);
+    image(earth,width/2,908,936,648);
+    image(littePrince,width-(width/6), 860, 84, 250);
+
   }
 
   void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {

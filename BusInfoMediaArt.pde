@@ -3,13 +3,13 @@ Data data = new Data();
 int paging = 6;
 PFont f;
 
-/*
+
 FirstScreen first;
 SecondScreen second;
 ThirdScreen third;
 FourthScreen fourth;
 FifthScreen fifth;
-*/
+
 
 void setup() {
     size(600,1000);
@@ -18,11 +18,14 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
-    ArrayList<BusInfo> returnedData = data.getBusInfoWithScreen(2);
-    for(int i = 0; i<returnedData.size(); i++) {
-        println(returnedData.get(i).busNum);
-    }
+    //1,5번 그대로 2~4번
 
+    
+    
+        ArrayList<BusInfo> returnedData = data.getBusInfoWithScreen(1);
+        for(int i = 0; i<returnedData.size(); i++) {
+            println(returnedData.get(i).busNum);
+        }
 
 
     //글씨
