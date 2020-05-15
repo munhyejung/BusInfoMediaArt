@@ -18,22 +18,26 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
-    //1,5번 그대로 2~4번
-
-    
-    
-        ArrayList<BusInfo> returnedData = data.getBusInfoWithScreen(1);
-        for(int i = 0; i<returnedData.size(); i++) {
-            println(returnedData.get(i).busNum);
-        }
-
-
-    //글씨
-    /*
     fill(0);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",12);
+    f = createFont("NotoSerifCJKkr-SemiBold.otf",45);
     textFont(f);
 
+    //background
+    first = new FirstScreen();
+    second = new SecondScreen();
+    third = new ThirdScreen();
+    fourth = new FourthScreen();
+    fifth = new FifthScreen();
+
+    //first.setupFunction();
+    second.setupFunction();
+    //third.setupFunction();
+    //fourth.setupFunction();
+    //fifth.setupFunction();
+
+    noLoop();
+
+    /*  글씨
     for(int i = 0; i<data.getBusArraySize();i++) {
         //paging
         int pageNum = i/paging;
@@ -60,7 +64,8 @@ void setup() {
 
 void draw() {
 
-    
+    //first.drawFunction();
+    //fifth.drawFunction();
+    second.drawFunction(data.getBusInfoWithScreen(1));
 
 }
-

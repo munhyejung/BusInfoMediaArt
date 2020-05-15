@@ -5,6 +5,7 @@ class SecondScreen {
   color c1, c2;
 
   PFont f;
+  PFont busNumf;
   PImage littlePrince;
   PImage B612;
   PImage rightarrow;
@@ -16,7 +17,7 @@ class SecondScreen {
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",25);
-    textFont(f);
+    busNumf = createFont("NotoSerifCJKkr-SemiBold.otf",40);
     imageMode(CENTER);
     littlePrince = loadImage("Second.png");
     B612 = loadImage("Second2.png");
@@ -24,15 +25,27 @@ class SecondScreen {
 
   }
 
-  void drawFunction() {
+  void drawFunction(ArrayList<BusInfo> returnedData) {
     // Background
     setGradient(0, 0, width, height, c1, c2, Y_AXIS);
     textAlign(CENTER);
+    textFont(f);
     text("행복해지기 전",width/2,height/5);
 
     image(B612,width/2,1150,814,829);
     image(littlePrince, width/10, 850, 78, 246);
     image(rightarrow,width-(width/18),height-(height/25),23,37);
+
+    println(returnedData.size());
+    for(int i = 0; i<returnedData.size(); i++) {
+        int y = (height/4 + (i+1)*20);
+        textFont(busNumf);
+        text(returnedData.get(i).busNum + "번",width/4,y);
+        println(returnedData.get(i).busNum);
+        //textSize(20);
+        //text("장미와 이야기 하는 중",(width/4)+50,y);
+    }
+    
 
   }
 

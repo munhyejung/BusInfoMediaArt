@@ -30,7 +30,6 @@ class ThirdScreen {
 
     image(rightarrow,width-(width/18),height-(height/25),23,37);
     image(leftarrow,width/18,height-(height/25),23,37);
-  fourth
   }
 
   void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
