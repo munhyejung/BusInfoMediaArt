@@ -30,8 +30,8 @@ void setup() {
     fifth = new FifthScreen();
 
     //first.setupFunction();
-    second.setupFunction();
-    //third.setupFunction();
+    //second.setupFunction();
+    third.setupFunction();
     //fourth.setupFunction();
     //fifth.setupFunction();
 
@@ -65,7 +65,8 @@ void setup() {
 void draw() {
 
     //first.drawFunction();
+    //second.drawFunction(data.getBusInfoWithScreen(1));
+    third.drawFunction(data.getBusInfoWithScreen(2));
+    //fourth.drawFunction(data.getBusInfoWithScreen(3));
     //fifth.drawFunction();
-    second.drawFunction(data.getBusInfoWithScreen(1));
-
 }

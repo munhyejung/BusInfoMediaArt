@@ -16,8 +16,8 @@ class SecondScreen {
     c2 = color(106, 106, 106);
 
     fill(255);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",25);
-    busNumf = createFont("NotoSerifCJKkr-SemiBold.otf",40);
+    f = createFont("NotoSerifCJKkr-ExtraLight.otf",28);
+    busNumf = createFont("NotoSerifCJKkr-SemiBold.otf",35);
     imageMode(CENTER);
     littlePrince = loadImage("Second.png");
     B612 = loadImage("Second2.png");
@@ -30,20 +30,25 @@ class SecondScreen {
     setGradient(0, 0, width, height, c1, c2, Y_AXIS);
     textAlign(CENTER);
     textFont(f);
-    text("행복해지기 전",width/2,height/5);
+    text("행복해지기 전",width/2,height/8);
 
     image(B612,width/2,1150,814,829);
     image(littlePrince, width/10, 850, 78, 246);
     image(rightarrow,width-(width/18),height-(height/25),23,37);
 
-    println(returnedData.size());
+    //println(returnedData.size());
     for(int i = 0; i<returnedData.size(); i++) {
-        int y = (height/4 + (i+1)*20);
+        int y = (height/6 + (i+1)*80);
         textFont(busNumf);
-        text(returnedData.get(i).busNum + "번",width/4,y);
-        println(returnedData.get(i).busNum);
-        //textSize(20);
-        //text("장미와 이야기 하는 중",(width/4)+50,y);
+        textAlign(LEFT);
+        
+          text(returnedData.get(i).busNum + "번",width/4,y);
+          //println(returnedData.get(i).busNum);
+          textSize(20);
+          text("장미와 이야기 하는 중",width/2,y-11);
+          textSize(15);
+          text("차고지 대기",width/2,(15+y)-6);
+
     }
     
 
