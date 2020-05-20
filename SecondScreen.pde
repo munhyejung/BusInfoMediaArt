@@ -36,19 +36,25 @@ class SecondScreen {
     image(littlePrince, width/10, 850, 78, 246);
     image(rightarrow,width-(width/18),height-(height/25),23,37);
 
-    //println(returnedData.size());
-    for(int i = 0; i<returnedData.size(); i++) {
+    //println(returnedData.size());     
+    if( returnedData.size() == 0 ) {
+      textFont(f);
+      textAlign(CENTER);
+      text("어린왕자와 장미가 싸웠습니다",width/2,height/2);
+    } 
+    else {
+      for(int i = 0; i<returnedData.size(); i++) {
         int y = (height/6 + (i+1)*80);
         textFont(busNumf);
         textAlign(LEFT);
         
-          text(returnedData.get(i).busNum + "번",width/4,y);
-          //println(returnedData.get(i).busNum);
-          textSize(20);
-          text("장미와 이야기 하는 중",width/2,y-11);
-          textSize(15);
-          text("차고지 대기",width/2,(15+y)-6);
-
+        text(returnedData.get(i).busNum + "번",width/4,y);
+        //println(returnedData.get(i).busNum);
+        textSize(20);
+        text("장미와 이야기 하는 중",width/2,y-11);
+        textSize(15);
+        text("차고지 대기",width/2,(15+y)-6);
+      }
     }
     
 

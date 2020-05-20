@@ -37,16 +37,26 @@ class FourthScreen {
     image(littePrince,width-(width/6), 860, 84, 250);
 
     //println(returnedData.size());
-    for(int i = 0; i<returnedData.size(); i++) {
-        int y = (height/6 + (i+1)*80);
-        textFont(busNumf);
-        textAlign(LEFT);
+    if( returnedData.size() == 0 ) {
 
+      textFont(f);
+      textAlign(CENTER);
+      text("어린왕자가 장미에게 \n 돌아가는 중 입니다",width/2,height/2); 
+
+      } 
+      else { 
+         for(int i = 0; i<returnedData.size(); i++) {
+
+          int y = (height/6 + (i+1)*80);
+          textFont(busNumf);
+          textAlign(LEFT);
           text(returnedData.get(i).busNum + "번",width/4,y);
           //println(returnedData.get(i).busNum);
           textSize(20);
           text("B612 도착 "+ returnedData.get(i).time1 + "분 전" ,width/2,y-8);
-    }
+
+        }
+      }
 
   }
 

@@ -4,6 +4,8 @@ class ThirdScreen {
   int X_AXIS = 2;
   color c1, c2;
 
+  int paging = 6;
+
   PFont f;
   PFont busNumf;
   PImage rightarrow;
@@ -35,17 +37,25 @@ class ThirdScreen {
   
     //println(returnedData.size());
     //8개씩 자르기
+    //Thread.sleep(2000); 1초 대기
+    //1페이지 보여주고 다시 for를 돌게
+
     for(int i = 0; i<returnedData.size(); i++) {
+
+        int listNum = i%paging;
+
         int y = (height/6 + (i+1)*80);
         textFont(busNumf);
         textAlign(LEFT);
-        
+
+
         text(returnedData.get(i).busNum + "번",width/4,y);
         //println(returnedData.get(i).busNum);
         textSize(20);
         text("여우와 함께 여행 중",width/2,y-11);
         textSize(15);
         text("도착 " + returnedData.get(i).time1 + "분 전",width/2,(15+y)-6);
+
     
     }
   }
