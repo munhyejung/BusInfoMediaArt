@@ -73,9 +73,9 @@ class Data {
                 }
             }
         } 
-        else {
+        else if (screenNum == 3) {
             for(int i = 0; i<getBusArraySize();i++) {
-                if(getBusInfoWithIndex(i).isItGarage == false && Integer.valueOf(getBusInfoWithIndex(i).time1) <= 2) {
+                if(getBusInfoWithIndex(i).isItGarage == false && Integer.valueOf(getBusInfoWithIndex(i).time1) <= 2 ) {
                     busDivision.add(busArray.get(i));
                 }
             } 

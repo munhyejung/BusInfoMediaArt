@@ -3,13 +3,13 @@ Data data = new Data();
 int paging = 6;
 PFont f;
 
-/*
+
 FirstScreen first;
 SecondScreen second;
 ThirdScreen third;
 FourthScreen fourth;
 FifthScreen fifth;
-*/
+
 
 void setup() {
     size(600,1000);
@@ -18,19 +18,26 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
-    ArrayList<BusInfo> returnedData = data.getBusInfoWithScreen(2);
-    for(int i = 0; i<returnedData.size(); i++) {
-        println(returnedData.get(i).busNum);
-    }
-
-
-
-    //글씨
-    /*
     fill(0);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",12);
+    f = createFont("NotoSerifCJKkr-SemiBold.otf",45);
     textFont(f);
 
+    //background
+    first = new FirstScreen();
+    second = new SecondScreen();
+    third = new ThirdScreen();
+    fourth = new FourthScreen();
+    fifth = new FifthScreen();
+
+    //first.setupFunction();
+    //second.setupFunction();
+    third.setupFunction();
+    //fourth.setupFunction();
+    //fifth.setupFunction();
+
+    noLoop();
+
+    /*  글씨
     for(int i = 0; i<data.getBusArraySize();i++) {
         //paging
         int pageNum = i/paging;
@@ -57,7 +64,9 @@ void setup() {
 
 void draw() {
 
-    
-
+    //first.drawFunction();
+    //second.drawFunction(data.getBusInfoWithScreen(1));
+    third.drawFunction(data.getBusInfoWithScreen(2));
+    //fourth.drawFunction(data.getBusInfoWithScreen(3));
+    //fifth.drawFunction();
 }
-
