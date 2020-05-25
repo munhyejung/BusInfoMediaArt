@@ -36,35 +36,31 @@ class ThirdScreen {
     image(leftarrow,width/18,height-(height/25),23,37);
   
     println(returnedData.size());
+    println("Current Page" + currentPage);
 
-    for(int i = 0; i<returnedData.size(); i++) {
+    for(int i = currentPage*8; i<returnedData.size(); i++) {
 
-      println(i);
+      if(i%8 == 0 && i == (currentPage+1)*8) {
+        break;
+      }
 
-      int y = (height/6 + ((i+1)%8)*80);
+      int y = (height/6 + ((i%8)+1)*80);
       textFont(busNumf);
       textAlign(LEFT);
 
       text(returnedData.get(i).busNum + "번",width/4,y);
-      //println(returnedData.get(i).busNum);
+      println(returnedData.get(i).busNum);
       textSize(20);
       text("여우와 함께 여행 중",width/2,y-11);
       textSize(15);
       text("도착 " + returnedData.get(i).time1 + "분 전",width/2,(15+y)-6);
+    }
 
-      if(i%8 == 0 && i != 0) {
-        try {Thread.sleep(10000);}
-        catch(Exception e) {println(e);}
+    currentPage++;
 
-        setGradient(0, 0, width, height, c1, c2, Y_AXIS);
-        textAlign(CENTER);
-        textFont(f);
-        text("행복해지기 시작",width/2,height/8);
-
-        image(rightarrow,width-(width/18),height-(height/25),23,37);
-        image(leftarrow,width/18,height-(height/25),23,37);
-      }
-
+    if(currentPage > 1) {
+      currentPage = 0;
+      
     }
   }
 

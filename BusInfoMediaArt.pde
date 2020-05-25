@@ -35,8 +35,6 @@ void setup() {
     //fourth.setupFunction();
     //fifth.setupFunction();
 
-    noLoop();
-
     /*  글씨
     for(int i = 0; i<data.getBusArraySize();i++) {
         //paging
@@ -66,6 +64,8 @@ void draw() {
 
     //first.drawFunction();
     //second.drawFunction(data.getBusInfoWithScreen(1));
+    try{ Thread.sleep(2000);}
+    catch(Exception e){ println(e); }
     third.drawFunction(data.getBusInfoWithScreen(2));
     //fourth.drawFunction(data.getBusInfoWithScreen(3));
     //fifth.drawFunction();
