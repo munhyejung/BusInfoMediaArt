@@ -35,8 +35,8 @@ class ThirdScreen {
     image(rightarrow,width-(width/18),height-(height/25),23,37);
     image(leftarrow,width/18,height-(height/25),23,37);
   
-    println(returnedData.size());
-    println("Current Page" + currentPage);
+    //println(returnedData.size());
+    //println("Current Page" + currentPage);
 
     for(int i = currentPage*8; i<returnedData.size(); i++) {
 
@@ -49,7 +49,7 @@ class ThirdScreen {
       textAlign(LEFT);
 
       text(returnedData.get(i).busNum + "번",width/4,y);
-      println(returnedData.get(i).busNum);
+      //println(returnedData.get(i).busNum);
       textSize(20);
       text("여우와 함께 여행 중",width/2,y-11);
       textSize(15);

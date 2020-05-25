@@ -1,6 +1,6 @@
 //Seperate Class that call data
 Data data = new Data();
-int paging = 6;
+int currentPage = 1;
 PFont f;
 
 
@@ -29,11 +29,11 @@ void setup() {
     fourth = new FourthScreen();
     fifth = new FifthScreen();
 
-    //first.setupFunction();
-    //second.setupFunction();
+    first.setupFunction();
+    second.setupFunction();
     third.setupFunction();
-    //fourth.setupFunction();
-    //fifth.setupFunction();
+    fourth.setupFunction();
+    fifth.setupFunction();
 
     /*  글씨
     for(int i = 0; i<data.getBusArraySize();i++) {
@@ -62,11 +62,33 @@ void setup() {
 
 void draw() {
 
-    //first.drawFunction();
-    //second.drawFunction(data.getBusInfoWithScreen(1));
-    try{ Thread.sleep(2000);}
-    catch(Exception e){ println(e); }
-    third.drawFunction(data.getBusInfoWithScreen(2));
-    //fourth.drawFunction(data.getBusInfoWithScreen(3));
-    //fifth.drawFunction();
+    switch (currentPage) {
+        case 1:
+          first.drawFunction();
+          break;
+        case 2:
+          second.drawFunction(data.getBusInfoWithScreen(1));
+          break;
+        case 3:
+          try{ Thread.sleep(2000);}
+        catch(Exception e){ println(e); }
+          third.drawFunction(data.getBusInfoWithScreen(2));
+          break;
+        case 4:
+          fourth.drawFunction(data.getBusInfoWithScreen(3));
+          break;
+        case 5:
+          fifth.drawFunction();
+          break;
+    }
+
+}
+
+void keyPressed() {
+    if (key == CODED) {
+        if(keyCode == RIGHT) {
+            //currentPage++;
+            println("KeyPRESSED");
+        }
+    }
 }
