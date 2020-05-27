@@ -13,12 +13,15 @@ class ThirdScreen {
 
   void setupFunction() {
     
+    //grgradient color
     c1 = color(19, 128, 223);
     c2 = color(134, 203, 245);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",28);
     busNumf = createFont("NotoSerifCJKkr-SemiBold.otf",35);
+    
+    //image
     imageMode(CENTER);
     rightarrow = loadImage("right.png");
     leftarrow = loadImage("left.png");
@@ -44,7 +47,7 @@ class ThirdScreen {
         break;
       }
 
-      int y = (height/6 + ((i%8)+1)*80);
+      int y = (height/6 + ((i%8)+1)*92);
       textFont(busNumf);
       textAlign(LEFT);
 

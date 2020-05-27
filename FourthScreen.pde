@@ -12,6 +12,7 @@ class FourthScreen {
 
   void setupFunction() {
 
+    //grgradient color
     c1 = color(87, 73, 115);
     c2 = color(251, 182, 142);
 
@@ -32,6 +33,7 @@ class FourthScreen {
     textFont(f);
     text("행복한 시작",width/2,height/8);
 
+    //image
     image(leftarrow,width/18,height-(height/25),23,37);
     image(earth,width/2,908,936,648);
     image(littePrince,width-(width/6), 860, 84, 250);

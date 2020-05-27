@@ -9,12 +9,15 @@ class FirstScreen {
 
   void setupFunction() {
     
+    //grgradient color
     c1 = color(184, 46, 107);
     c2 = color(209, 136, 33);
 
     fill(255);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",21);
+    f = createFont("NotoSerifCJKkr-ExtraLight.otf",24);
     textFont(f);
+    
+    //image
     imageMode(CENTER);
     background = loadImage("First.png");
 
@@ -28,11 +31,13 @@ class FirstScreen {
     noStroke();
     rect(0,0,width,height);
 
+    //script
     textAlign(CENTER);
-    textLeading(50);
     fill(255);
-    text("네가 오후 4시에 온다면\n 나는 3시부터\n 행복해지기 시작할 거야",width/2,(height/2)-55);
-    textSize(15);
+    textFont(f);
+    textLeading(55);
+    text("네가 오후 4시에 온다면\n 나는 3시부터\n 행복해지기 시작할 거야",(width/2),(height/2)-90);
+    textSize(18);
     text("어린 왕자",width/2,(height/2)+120);
 
     image(background, width/2, 1000, 441, 554);

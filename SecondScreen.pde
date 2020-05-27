@@ -12,12 +12,15 @@ class SecondScreen {
 
   void setupFunction() {
     
+    //grgradient color
     c1 = color(16, 30, 55);
     c2 = color(106, 106, 106);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",28);
     busNumf = createFont("NotoSerifCJKkr-SemiBold.otf",35);
+    
+    //image
     imageMode(CENTER);
     littlePrince = loadImage("Second.png");
     B612 = loadImage("Second2.png");

@@ -9,12 +9,15 @@ class FifthScreen {
 
   void setupFunction() {
     
+    //grgradient color
     c1 = color(1, 21, 38);
     c2 = color(4, 102, 140);
 
     fill(255);
-    f = createFont("NotoSerifCJKkr-ExtraLight.otf",18);
+    f = createFont("NotoSerifCJKkr-ExtraLight.otf",20);
     textFont(f);
+    
+    //image
     imageMode(CENTER);
     background = loadImage("fifth.png");
 
@@ -23,18 +26,20 @@ class FifthScreen {
   void drawFunction() {
     // Background
     setGradient(0, 0, width, height, c1, c2, Y_AXIS);
-    image(background, width/2, 750, 395, 463);
+    image(background, width/2, 760, 395, 463);
     color backgroundBlack = color(0,0,0,100);
     fill(backgroundBlack);
     noStroke();
     rect(0,0,width,height);
     
+    //script
     textAlign(CENTER);
-    textLeading(50);
     fill(255);
-    text("네가 무턱대고\n 아무때나 찾아오면\n 난 언제부터\n 마음의 준비를\n 해야할지 모르니까",width/2,(height/2)-70);
-    textSize(14);
-    text("어린 왕자",width/2,(height/2)+250);
+    textFont(f);
+    textLeading(58);
+    text("네가 무턱대고\n 아무때나 찾아오면\n 난 언제부터\n 마음의 준비를\n 해야할지 모르니까",width/2,(height/2)-115);
+    textSize(16);
+    text("어린 왕자",width/2,(height/2)+220);
 
   }
 

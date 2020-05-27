@@ -1,8 +1,7 @@
 //Seperate Class that call data
 Data data = new Data();
+boolean thirdPageStart = true;
 int currentPage = 1;
-PFont f;
-
 
 FirstScreen first;
 SecondScreen second;
@@ -18,10 +17,6 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
-    fill(0);
-    f = createFont("NotoSerifCJKkr-SemiBold.otf",45);
-    textFont(f);
-
     //background
     first = new FirstScreen();
     second = new SecondScreen();
@@ -35,33 +30,11 @@ void setup() {
     fourth.setupFunction();
     fifth.setupFunction();
 
-    /*  글씨
-    for(int i = 0; i<data.getBusArraySize();i++) {
-        //paging
-        int pageNum = i/paging;
-        int listNum = i%paging;
-        int x = 30 + pageNum*(width/4);
-        int y = 40 + listNum*(height/paging);
-
-        //차고지 예외 처리
-        String tmpBusNum = data.getBusInfoWithIndex(i).busNum;
-        
-        if(data.getBusInfoWithIndex(i).isItGarage == false) {
-            data.getBusInfoWithIndex(i).display(x,y);
-        } 
-        else {
-            text( tmpBusNum + "번 버스 차고지 대기 중",x,y);
-        }
-    }   
-    */
-
-    //버스 확인용
-    //displayInfos();
-
 }
 
 void draw() {
 
+    //page
     switch (currentPage) {
         case 1:
           first.drawFunction();
@@ -70,9 +43,12 @@ void draw() {
           second.drawFunction(data.getBusInfoWithScreen(1));
           break;
         case 3:
-          try{ Thread.sleep(2000);}
-        catch(Exception e){ println(e); }
+          if(thirdPageStart == false ){
+            try{ Thread.sleep(2000);}
+            catch(Exception e){ println(e); }
+          }
           third.drawFunction(data.getBusInfoWithScreen(2));
+          thirdPageStart = false;
           break;
         case 4:
           fourth.drawFunction(data.getBusInfoWithScreen(3));
@@ -81,14 +57,19 @@ void draw() {
           fifth.drawFunction();
           break;
     }
-
 }
 
+//button
 void keyPressed() {
     if (key == CODED) {
         if(keyCode == RIGHT) {
-            //currentPage++;
-            println("KeyPRESSED");
+            currentPage++;
+            thirdPageStart = true;
+        }
+
+        if(keyCode == LEFT) {
+          currentPage--;
+          thirdPageStart = true;
         }
     }
 }
