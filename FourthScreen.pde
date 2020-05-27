@@ -43,22 +43,23 @@ class FourthScreen {
 
       textFont(f);
       textAlign(CENTER);
-      text("어린왕자가 장미에게 \n 돌아가는 중 입니다",width/2,height/2); 
+      textLeading(45);
+      text("어린 왕자가 장미를 \n만나러 갑니다.",width/2,height/2); 
 
-      } 
-      else { 
-         for(int i = 0; i<returnedData.size(); i++) {
+    } 
+    else { 
+        for(int i = 0; i<returnedData.size(); i++) {
 
-          int y = (height/6 + (i+1)*80);
-          textFont(busNumf);
-          textAlign(LEFT);
-          text(returnedData.get(i).busNum + "번",width/4,y);
-          //println(returnedData.get(i).busNum);
-          textSize(20);
-          text("B612 도착 "+ returnedData.get(i).time1 + "분 전" ,width/2,y-8);
+        int y = (height/6 + (i+1)*80);
+        textFont(busNumf);
+        textAlign(LEFT);
+        text(returnedData.get(i).busNum + "번",width/4,y);
+        //println(returnedData.get(i).busNum);
+        textSize(20);
+        text("B612 도착 "+ returnedData.get(i).time1 + "분 전" ,width/2,y-8);
 
-        }
       }
+    }
 
   }
 

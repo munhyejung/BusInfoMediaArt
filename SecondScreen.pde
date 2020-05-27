@@ -43,7 +43,8 @@ class SecondScreen {
     if( returnedData.size() == 0 ) {
       textFont(f);
       textAlign(CENTER);
-      text("어린왕자와 장미가 싸웠습니다",width/2,height/2);
+      textLeading(45);
+      text("어린 왕자가 다른 행성으로 \n여행을 떠났습니다.",width/2,height/2);
     } 
     else {
       for(int i = 0; i<returnedData.size(); i++) {
