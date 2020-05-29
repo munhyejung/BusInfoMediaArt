@@ -1,4 +1,15 @@
 //Seperate Class that call data
+import processing.sound.*;
+SoundFile file;
+
+/*
+Grisaia no Rakuen OST - Flowers, Blooming Side by Side
+Gin no Saji Silver Spoon - Main Theme
+브금대통령(BgmPresident) - Memory Of Spring
+태연 - 11:11 inst
+f(x) - 미행 inst
+*/
+
 Data data = new Data();
 boolean thirdPageStart = true;
 int currentPage = 1;
@@ -16,6 +27,10 @@ void setup() {
 
     data.getJson();
     data.loadAllData();
+
+    file = new SoundFile(this,"지구에는 항상 꽃이 피어나지.mp3");
+    file.play();
+    file.loop();
 
     //background
     first = new FirstScreen();
