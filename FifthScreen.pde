@@ -37,9 +37,7 @@ class FifthScreen {
     fill(255);
     textFont(f);
     textLeading(58);
-    text("네가 무턱대고\n 아무때나 찾아오면\n 난 언제부터\n 마음의 준비를\n 해야할지 모르니까",width/2,(height/2)-115);
-    textSize(16);
-    text("어린 왕자",width/2,(height/2)+220);
+    text("네가 무턱대고\n 아무때나 찾아오면\n 난 언제부터\n 예방 해야할지\n 모르니까",width/2,(height/2)-115);
 
   }
 
