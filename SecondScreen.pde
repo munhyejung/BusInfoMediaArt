@@ -34,6 +34,8 @@ class SecondScreen {
     textAlign(CENTER);
     textFont(f);
     text("행복해지기 전",width/2,height/8);
+    text("오늘의 환자 수",width-(width/4),height-(height/4));
+
 
     image(B612,width/2,1150,814,829);
     image(littlePrince, width/10, 850, 78, 246);

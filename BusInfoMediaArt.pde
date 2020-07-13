@@ -28,7 +28,7 @@ void setup() {
     data.getJson();
     data.loadAllData();
 
-    //지구에는 항상 꽃이 피어나지
+    //지구에는 항상 꽃이 피어나지 
     file = new SoundFile(this,"지구에는 항상 꽃이 피어나지.mp3");
     file.play();
     file.loop();

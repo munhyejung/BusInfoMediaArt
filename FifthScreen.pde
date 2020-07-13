@@ -10,8 +10,8 @@ class FifthScreen {
   void setupFunction() {
     
     //grgradient color
-    c1 = color(1, 21, 38);
-    c2 = color(4, 102, 140);
+    c1 = color(226, 99, 27);
+    c2 = color(204, 100, 64);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",20);

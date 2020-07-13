@@ -6,6 +6,7 @@ class FirstScreen {
 
   PFont f;
   PImage background;
+  PImage handSanitizer;
 
   void setupFunction() {
     
@@ -20,7 +21,7 @@ class FirstScreen {
     //image
     imageMode(CENTER);
     background = loadImage("First.png");
-
+    handSanitizer = loadImage("hand.png");
   }
 
   void drawFunction() {

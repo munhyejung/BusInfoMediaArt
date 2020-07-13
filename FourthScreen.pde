@@ -32,6 +32,7 @@ class FourthScreen {
     textAlign(CENTER);
     textFont(f);
     text("행복한 시작",width/2,height/8);
+    text("전 일 대비 환자 수 증감",width-(width/4),height-(height/4));
 
     //image
     image(leftarrow,width/18,height-(height/25),23,37);
@@ -54,7 +55,7 @@ class FourthScreen {
         textFont(busNumf);
         textAlign(LEFT);
         text(returnedData.get(i).busNum + "번",width/4,y);
-        //println(returnedData.get(i).busNum);
+        //println(returnedData.get(i).busNum); 
         textSize(20);
         text("B612 도착 "+ returnedData.get(i).time1 + "분 전" ,width/2,y-8);
 
