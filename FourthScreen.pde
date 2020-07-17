@@ -44,7 +44,7 @@ class FourthScreen {
       textFont(f);
       textAlign(CENTER);
       textLeading(45);
-      text("어린 왕자가 장미를 \n만나러 갑니다.",width/2,height/2); 
+      text("장미를 만나기 전에 \n손소독을 해주세요.",width/2,height/2); 
 
     } 
     else { 

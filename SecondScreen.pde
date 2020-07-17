@@ -13,8 +13,8 @@ class SecondScreen {
   void setupFunction() {
     
     //grgradient color
-    c1 = color(16, 30, 55);
-    c2 = color(106, 106, 106);
+    c1 = color(218, 78, 52);
+    c2 = color(200, 79, 90);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",28);
@@ -44,7 +44,7 @@ class SecondScreen {
       textFont(f);
       textAlign(CENTER);
       textLeading(45);
-      text("어린 왕자가 다른 행성으로 \n여행을 떠났습니다.",width/2,height/2);
+      text("떠나기 전에 마스크를 꼭 착용해주세요.",width/2,height/2);
     } 
     else {
       for(int i = 0; i<returnedData.size(); i++) {

@@ -36,7 +36,7 @@ class FirstScreen {
     fill(255);
     textFont(f);
     textLeading(55);
-    text("네가 오후 4시에 온다면\n 나는 3시부터\n 행복해지기 시작할 거야",(width/2),(height/2)-90);
+    text("네가 오후 4시에 온다면\n 나는 3시부터\n 예방하기 시작할 거야",(width/2),(height/2)-90);
     textSize(18);
     text("어린 왕자",width/2,(height/2)+120);
 
