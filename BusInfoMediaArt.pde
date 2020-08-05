@@ -6,11 +6,15 @@ Data data = new Data();
 boolean thirdPageStart = true;
 int currentPage = 1;
 
+/*
 FirstScreen first;
 SecondScreen second;
 ThirdScreen third;
 FourthScreen fourth;
 FifthScreen fifth;
+CameraBeforeScreen camerabefore;
+*/
+PatientScreen patient;
 
 
 /*
@@ -24,31 +28,41 @@ void setup() {
     size(600,1000);
     background(255);
 
+  /*
     data.getJson();
     data.loadAllData();
 
     file = new SoundFile(this,"flower.wav");
     file.play();
     file.loop();
-    
+    */
 
     //background
+    /*
     first = new FirstScreen();
     second = new SecondScreen();
     third = new ThirdScreen();
     fourth = new FourthScreen();
     fifth = new FifthScreen();
+    camerabefore = new CameraBeforeScreen();
+    */
+    patient = new PatientScreen();
 
+    /*
     first.setupFunction();
     second.setupFunction();
     third.setupFunction();
     fourth.setupFunction();
     fifth.setupFunction();
+    camerabefore.setupFunction();
+    */
+    patient.setupFunction();
 
 }
 
 void draw() {
     //page
+    /*
     switch (currentPage) {
         case 1:
           first.drawFunction();
@@ -71,7 +85,10 @@ void draw() {
           fifth.drawFunction();
           break;
     }
-    
+    */
+
+    //camerabefore.drawFunction();
+    patient.drawFunction();
 
 }
 

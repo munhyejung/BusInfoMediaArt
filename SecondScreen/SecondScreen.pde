@@ -11,8 +11,8 @@ class SecondScreen {
 
   void setupFunction() {
     
-    c1 = color(16, 30, 55);
-    c2 = color(106, 106, 106);
+    c1 = color(218, 78, 52);
+    c2 = color(200, 79, 90);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-ExtraLight.otf",25);

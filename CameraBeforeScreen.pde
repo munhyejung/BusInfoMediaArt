@@ -6,12 +6,14 @@ class CameraBeforeScreen {
 
   PFont f;
   PImage mask;
-
+  PImage rightarrow;
+  PImage leftarrow;
+  
   void setupFunction() {
     
     //grgradient color
-    c1 = color(345, 23, 52);
-    c2 = color(16, 67, 99);
+    c1 = color(133, 102, 110 );
+    c2 = color(253, 127, 83);
 
     fill(255);
     f = createFont("NotoSerifCJKkr-SemiBold.otf",24);
@@ -19,7 +21,9 @@ class CameraBeforeScreen {
     
     //image
     imageMode(CENTER);
-    mask = loadImage("fifth.png");
+    mask = loadImage("mask.png");
+    rightarrow = loadImage("right.png");
+    leftarrow = loadImage("left.png");
 
 
   }
@@ -27,11 +31,11 @@ class CameraBeforeScreen {
   void drawFunction() {
     // Background
     setGradient(0, 0, width, height, c1, c2, Y_AXIS);
-    image(mask, width/2, 760, 395, 463);
-    color backgroundBlack = color(0,0,0,100);
-    fill(backgroundBlack);
+    image(mask, width/2, height-450 , 268.45, 136.15);
     noStroke();
-    rect(0,0,width,height);
+
+    image(rightarrow,width-(width/18),height-(height/25),23,37);
+    image(leftarrow,width/18,height-(height/25),23,37);
 
     //script
     textAlign(CENTER);
