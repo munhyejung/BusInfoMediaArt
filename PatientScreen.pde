@@ -8,6 +8,9 @@ class PatientScreen {
 
   PImage rightarrow;
   PImage leftarrow;
+  PImage people;
+  PImage hand;
+  PImage handPeople;
 
   void setupFunction() {
     
@@ -22,8 +25,12 @@ class PatientScreen {
     imageMode(CENTER);
     rightarrow = loadImage("right.png");
     leftarrow = loadImage("left.png");
-
-
+    /*
+    poeple = loadImage("people.png");
+    hand = loadImage("hand.png");
+    handpoeple = loadImage("handpeople.png");
+     */
+     
   }
 
   void drawFunction() {
@@ -35,9 +42,9 @@ class PatientScreen {
 
     text("주의해주세요",width/2, height/2-100);
     textSize(25);
-    text("기침, 재채기할 때 옷소매로 입과 코가리기",width/2, height-300);
+    text("기침, 재채기할 때 옷소매로 입과 코 가리기",width/2, height-400);
     text("흐르는 물에 비누로 꼼꼼히 손 씻기",width/2, height-450);
-    text("씻지 않은 손으로 눈,코,입 만지지 않기",width/2, height-150);
+    text("씻지 않은 손으로 눈,코,입 만지지 않기",width/2, height-350);
   
   }
 

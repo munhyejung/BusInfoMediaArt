@@ -1,5 +1,6 @@
 //Seperate Class that call data
 import processing.sound.*;
+import processing.video.*;
 SoundFile file;
 
 Data data = new Data();
@@ -13,6 +14,8 @@ ThirdScreen third;
 FourthScreen fourth;
 FifthScreen fifth;
 CameraBeforeScreen camerabefore;
+
+CameraScreen camera;
 */
 PatientScreen patient;
 
@@ -45,6 +48,8 @@ void setup() {
     fourth = new FourthScreen();
     fifth = new FifthScreen();
     camerabefore = new CameraBeforeScreen();
+    
+    camera = new CameraScreen();
     */
     patient = new PatientScreen();
 
@@ -55,6 +60,8 @@ void setup() {
     fourth.setupFunction();
     fifth.setupFunction();
     camerabefore.setupFunction();
+    
+    camera.setupFunction();
     */
     patient.setupFunction();
 
@@ -88,6 +95,7 @@ void draw() {
     */
 
     //camerabefore.drawFunction();
+    //camera.drawFunction();
     patient.drawFunction();
 
 }
