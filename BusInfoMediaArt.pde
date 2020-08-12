@@ -14,11 +14,10 @@ ThirdScreen third;
 FourthScreen fourth;
 FifthScreen fifth;
 CameraBeforeScreen camerabefore;
-
 CameraScreen camera;
+Capture cam;
 */
 PatientScreen patient;
-
 
 /*
 지구에는 항상 꽃이 피어나지(flower)
@@ -48,8 +47,8 @@ void setup() {
     fourth = new FourthScreen();
     fifth = new FifthScreen();
     camerabefore = new CameraBeforeScreen();
-    
-    camera = new CameraScreen();
+    cam = new Capture(this, 1280, 720);
+    camera = new CameraScreen(cam);
     */
     patient = new PatientScreen();
 
@@ -60,8 +59,7 @@ void setup() {
     fourth.setupFunction();
     fifth.setupFunction();
     camerabefore.setupFunction();
-    
-    camera.setupFunction();
+
     */
     patient.setupFunction();
 
@@ -75,9 +73,18 @@ void draw() {
           first.drawFunction();
           break;
         case 2:
-          second.drawFunction(data.getBusInfoWithScreen(1));
+          camerabefore.drawFunction();
           break;
         case 3:
+          camera.drawFunction();
+          break;
+        case 4:
+          
+          break;
+        case 5:
+          second.drawFunction(data.getBusInfoWithScreen(1));
+          break;
+        case 6:
           if(thirdPageStart == false ){
             try{ Thread.sleep(2000);}
             catch(Exception e){ println(e); }
@@ -85,17 +92,15 @@ void draw() {
           third.drawFunction(data.getBusInfoWithScreen(2));
           thirdPageStart = false;
           break;
-        case 4:
+        case 7:
           fourth.drawFunction(data.getBusInfoWithScreen(3));
           break;
-        case 5:
+        case 8:
           fifth.drawFunction();
           break;
     }
     */
 
-    //camerabefore.drawFunction();
-    //camera.drawFunction();
     patient.drawFunction();
 
 }
@@ -113,4 +118,8 @@ void keyPressed() {
           thirdPageStart = true;
         }
     }
+}
+
+void captureEvent(Capture c) {
+  c.read();
 }

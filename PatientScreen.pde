@@ -20,6 +20,11 @@ class PatientScreen {
 
     fill(255);
     f = createFont("NotoSerifCJKkr-SemiBold.otf",28);
+
+    XML xml = loadXML("http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?ServiceKey=bmyAYXE5rIj1is4FNuFX9Zt%2FRscDoEtrPYR%2FPyp9CxleMP8G1Cg3lLR3GHjMIO9TVXt0EeN8UkKkyuO3Op%2FWNA%3D%3D");
+    XML[] children = xml.getChildren("incDec");
+
+    println(children[children.length - 1]);
     
     //image
     imageMode(CENTER);
@@ -40,7 +45,14 @@ class PatientScreen {
     textFont(f);
     text("오늘의 환자수",width/2,height/8);
 
-    text("주의해주세요",width/2, height/2-100);
+    
+
+
+
+    text("전국 증감 환자 수 " +  + "명",width/2,(height/2)-300);
+
+
+    text("주의해주세요",width/2, (height/2)-100);
     textSize(25);
     text("기침, 재채기할 때 옷소매로 입과 코 가리기",width/2, height-400);
     text("흐르는 물에 비누로 꼼꼼히 손 씻기",width/2, height-450);
